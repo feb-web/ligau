@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_media_media",
+  "info": {
+    "displayName": "Media",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "richtext": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}
