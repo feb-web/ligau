@@ -701,6 +701,40 @@ export interface ApiPlayerPlayer extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiScorePlayMediaScorePlayMedia
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'score_play_medias';
+  info: {
+    displayName: 'ScorePlay Media';
+    pluralName: 'score-play-medias';
+    singularName: 'score-play-media';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::score-play-media.score-play-media'
+    > &
+      Schema.Attribute.Private;
+    media_id: Schema.Attribute.Integer;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    tags: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['photo', 'video']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
   collectionName: 'teams';
   info: {
@@ -1243,6 +1277,7 @@ declare module '@strapi/strapi' {
       'api::hero-banner.hero-banner': ApiHeroBannerHeroBanner;
       'api::highlight.highlight': ApiHighlightHighlight;
       'api::player.player': ApiPlayerPlayer;
+      'api::score-play-media.score-play-media': ApiScorePlayMediaScorePlayMedia;
       'api::team.team': ApiTeamTeam;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

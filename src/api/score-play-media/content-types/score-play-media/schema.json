@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "score_play_medias",
+  "info": {
+    "singularName": "score-play-media",
+    "pluralName": "score-play-medias",
+    "displayName": "ScorePlay Media"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "media_id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "photo",
+        "video"
+      ]
+    },
+    "date": {
+      "type": "date"
+    },
+    "url": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "string"
+    }
+  }
+}
