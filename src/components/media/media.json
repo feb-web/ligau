@@ -5,10 +5,6 @@
     "icon": "landscape"
   },
   "options": {},
-  "attributes": {
-    "richtext": {
-      "type": "richtext"
-    }
-  },
+  "attributes": {},
   "config": {}
 }

@@ -46,7 +46,8 @@
       "type": "dynamiczone",
       "components": [
         "media.media",
-        "media.quote"
+        "media.quote",
+        "media.texto-enriquecido"
       ]
     }
   }

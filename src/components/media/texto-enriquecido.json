@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_media_texto_enriquecidos",
+  "info": {
+    "displayName": "Texto Enriquecido",
+    "icon": "brush"
+  },
+  "options": {},
+  "attributes": {
+    "rich_text": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}
