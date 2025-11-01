@@ -14,9 +14,6 @@
     "Titulo": {
       "type": "string"
     },
-    "Descripcion": {
-      "type": "richtext"
-    },
     "Tipo": {
       "type": "enumeration",
       "enum": [

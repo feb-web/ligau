@@ -686,7 +686,6 @@ export interface ApiMediaMedia extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Descripcion: Schema.Attribute.RichText;
     fecha: Schema.Attribute.Date;
     idpartido: Schema.Attribute.String;
     Imagen: Schema.Attribute.Media<
@@ -726,6 +725,7 @@ export interface ApiPartidoPartido extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     idlocal: Schema.Attribute.String;
     idpartido: Schema.Attribute.String;
+    idteams: Schema.Attribute.Relation<'oneToMany', 'api::team.team'>;
     idvisitante: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

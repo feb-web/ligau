@@ -25,6 +25,11 @@
       "relation": "oneToMany",
       "target": "api::media.media",
       "mappedBy": "partido"
+    },
+    "idteams": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team.team"
     }
   }
 }
