@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "partidos",
+  "info": {
+    "singularName": "partido",
+    "pluralName": "partidos",
+    "displayName": "Partido"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "idpartido": {
+      "type": "string"
+    },
+    "idlocal": {
+      "type": "string"
+    },
+    "idvisitante": {
+      "type": "string"
+    },
+    "media": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::media.media",
+      "mappedBy": "partido"
+    }
+  }
+}

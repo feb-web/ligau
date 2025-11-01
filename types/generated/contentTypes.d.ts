@@ -672,6 +672,75 @@ export interface ApiHighlightHighlight extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMediaMedia extends Struct.CollectionTypeSchema {
+  collectionName: 'medias';
+  info: {
+    displayName: 'Media';
+    pluralName: 'medias';
+    singularName: 'media';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Descripcion: Schema.Attribute.RichText;
+    fecha: Schema.Attribute.Date;
+    idpartido: Schema.Attribute.String;
+    Imagen: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::media.media'> &
+      Schema.Attribute.Private;
+    partido: Schema.Attribute.Relation<'manyToOne', 'api::partido.partido'>;
+    publishedAt: Schema.Attribute.DateTime;
+    tags: Schema.Attribute.String;
+    Tipo: Schema.Attribute.Enumeration<
+      ['Entrenamiento', 'Partido', 'Evento', 'Otro']
+    >;
+    Titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    visible: Schema.Attribute.Boolean;
+  };
+}
+
+export interface ApiPartidoPartido extends Struct.CollectionTypeSchema {
+  collectionName: 'partidos';
+  info: {
+    displayName: 'Partido';
+    pluralName: 'partidos';
+    singularName: 'partido';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    idlocal: Schema.Attribute.String;
+    idpartido: Schema.Attribute.String;
+    idvisitante: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::partido.partido'
+    > &
+      Schema.Attribute.Private;
+    media: Schema.Attribute.Relation<'oneToMany', 'api::media.media'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPlayerPlayer extends Struct.CollectionTypeSchema {
   collectionName: 'players';
   info: {
@@ -701,13 +770,14 @@ export interface ApiPlayerPlayer extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiScorePlayMediaScorePlayMedia
+export interface ApiScoreplayMediaScoreplayMedia
   extends Struct.CollectionTypeSchema {
-  collectionName: 'score_play_medias';
+  collectionName: 'scoreplay_medias';
   info: {
+    description: 'Contenido multimedia importado desde ScorePlay';
     displayName: 'ScorePlay Media';
-    pluralName: 'score-play-medias';
-    singularName: 'score-play-media';
+    pluralName: 'scoreplay-medias';
+    singularName: 'scoreplay-media';
   };
   options: {
     draftAndPublish: true;
@@ -716,11 +786,11 @@ export interface ApiScorePlayMediaScorePlayMedia
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    date: Schema.Attribute.Date;
+    date: Schema.Attribute.DateTime;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::score-play-media.score-play-media'
+      'api::scoreplay-media.scoreplay-media'
     > &
       Schema.Attribute.Private;
     media_id: Schema.Attribute.Integer;
@@ -1276,8 +1346,10 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::hero-banner.hero-banner': ApiHeroBannerHeroBanner;
       'api::highlight.highlight': ApiHighlightHighlight;
+      'api::media.media': ApiMediaMedia;
+      'api::partido.partido': ApiPartidoPartido;
       'api::player.player': ApiPlayerPlayer;
-      'api::score-play-media.score-play-media': ApiScorePlayMediaScorePlayMedia;
+      'api::scoreplay-media.scoreplay-media': ApiScoreplayMediaScoreplayMedia;
       'api::team.team': ApiTeamTeam;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
