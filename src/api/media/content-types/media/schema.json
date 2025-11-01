@@ -33,6 +33,9 @@
         "audios"
       ]
     },
+    "video_url": {
+      "type": "string"
+    },
     "tags": {
       "type": "string"
     },
