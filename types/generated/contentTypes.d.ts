@@ -699,7 +699,7 @@ export interface ApiMediaMedia extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     tags: Schema.Attribute.String;
     Tipo: Schema.Attribute.Enumeration<
-      ['Entrenamiento', 'Partido', 'Evento', 'Otro']
+      ['Partido', 'Resumen', 'Entrenamiento', 'Evento', 'Otro']
     >;
     Titulo: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

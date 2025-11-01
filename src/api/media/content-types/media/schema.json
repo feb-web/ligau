@@ -17,8 +17,9 @@
     "Tipo": {
       "type": "enumeration",
       "enum": [
-        "Entrenamiento",
         "Partido",
+        "Resumen",
+        "Entrenamiento",
         "Evento",
         "Otro"
       ]
