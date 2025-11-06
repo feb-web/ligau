@@ -17,6 +17,9 @@
     "description": {
       "type": "string"
     },
+    "date": {
+      "type": "date"
+    },
     "slug": {
       "type": "uid"
     },
