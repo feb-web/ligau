@@ -837,6 +837,37 @@ export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTrendingTrending extends Struct.CollectionTypeSchema {
+  collectionName: 'trendings';
+  info: {
+    displayName: 'Trending';
+    pluralName: 'trendings';
+    singularName: 'trending';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date;
+    gameid: Schema.Attribute.UID;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::trending.trending'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video_url: Schema.Attribute.String;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1357,6 +1388,7 @@ declare module '@strapi/strapi' {
       'api::player.player': ApiPlayerPlayer;
       'api::scoreplay-media.scoreplay-media': ApiScoreplayMediaScoreplayMedia;
       'api::team.team': ApiTeamTeam;
+      'api::trending.trending': ApiTrendingTrending;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
