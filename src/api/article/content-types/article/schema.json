@@ -50,7 +50,8 @@
       "components": [
         "media.media",
         "media.quote",
-        "media.texto-enriquecido"
+        "media.texto-enriquecido",
+        "media.you-tube-video"
       ]
     }
   }

@@ -443,7 +443,12 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     blocks: Schema.Attribute.DynamicZone<
-      ['media.media', 'media.quote', 'media.texto-enriquecido']
+      [
+        'media.media',
+        'media.quote',
+        'media.texto-enriquecido',
+        'media.you-tube-video',
+      ]
     >;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
     cover: Schema.Attribute.Media<

@@ -38,6 +38,16 @@ export interface MediaTextoEnriquecido extends Struct.ComponentSchema {
   };
 }
 
+export interface MediaYouTubeVideo extends Struct.ComponentSchema {
+  collectionName: 'components_media_you_tube_videos';
+  info: {
+    displayName: 'YouTube Video';
+  };
+  attributes: {
+    url: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -45,6 +55,7 @@ declare module '@strapi/strapi' {
       'media.media': MediaMedia;
       'media.quote': MediaQuote;
       'media.texto-enriquecido': MediaTextoEnriquecido;
+      'media.you-tube-video': MediaYouTubeVideo;
     }
   }
 }
